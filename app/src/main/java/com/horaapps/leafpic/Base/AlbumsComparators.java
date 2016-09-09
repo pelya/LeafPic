@@ -2,6 +2,8 @@ package com.horaapps.leafpic.Base;
 
 import java.util.Comparator;
 
+import com.horaapps.leafpic.utils.NumericComparator;
+
 /**
  * Created by dnld on 26/04/16.
  */
@@ -39,6 +41,16 @@ class AlbumsComparators {
                 return ascending
                         ? f1.getCount() - f2.getCount()
                         : f2.getCount() - f1.getCount();
+            }
+        };
+    }
+
+    Comparator<Album> getNumericComparator() {
+        return new Comparator<Album>() {
+            public int compare(Album f1, Album f2) {
+                return ascending
+                        ? NumericComparator.filevercmp(f1.getName().toLowerCase(), f2.getName().toLowerCase())
+                        : NumericComparator.filevercmp(f2.getName().toLowerCase(), f1.getName().toLowerCase());
             }
         };
     }

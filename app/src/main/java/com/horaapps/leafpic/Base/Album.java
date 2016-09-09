@@ -301,6 +301,9 @@ public class Album {
             case AlbumSettings.SORT_BY_TYPE:
                 Collections.sort(media, mediaComparators.getTypeComparator());
                 break;
+            case AlbumSettings.SORT_BY_NUMBER:
+                Collections.sort(media, mediaComparators.getNumericComparator());
+                break;
             case AlbumSettings.SORT_BY_DATE:
             default:
                 Collections.sort(media, mediaComparators.getDateComparator());

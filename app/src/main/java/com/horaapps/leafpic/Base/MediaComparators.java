@@ -2,6 +2,8 @@ package com.horaapps.leafpic.Base;
 
 import java.util.Comparator;
 
+import com.horaapps.leafpic.utils.NumericComparator;
+
 /**
  * Created by dnld on 26/04/16.
  */
@@ -50,6 +52,16 @@ class MediaComparators {
                 return ascending
                                ? f1.getMIME().compareTo(f2.getMIME())
                                : f2.getMIME().compareTo(f1.getMIME());
+            }
+        };
+    }
+
+    Comparator<Media> getNumericComparator() {
+        return new Comparator<Media>() {
+            public int compare(Media f1, Media f2) {
+                return ascending
+                        ? NumericComparator.filevercmp(f1.getPath(), f2.getPath())
+                        : NumericComparator.filevercmp(f2.getPath(), f1.getPath());
             }
         };
     }

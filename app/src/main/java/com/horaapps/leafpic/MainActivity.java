@@ -928,6 +928,7 @@ public class MainActivity extends ThemedActivity {
             switch (albums.getColumnSortingMode()) {
                 case AlbumSettings.SORT_BY_NAME:  menu.findItem(R.id.name_sort_action).setChecked(true); break;
                 case AlbumSettings.SORT_BY_SIZE:  menu.findItem(R.id.size_sort_action).setChecked(true); break;
+                case AlbumSettings.SORT_BY_NUMBER:  menu.findItem(R.id.numeric_sort_action).setChecked(true); break;
                 case AlbumSettings.SORT_BY_DATE:
                     default:
                         menu.findItem(R.id.date_taken_sort_action).setChecked(true);
@@ -943,6 +944,7 @@ public class MainActivity extends ThemedActivity {
             switch (album.settings.columnSortingMode) {
                 case AlbumSettings.SORT_BY_NAME:  menu.findItem(R.id.name_sort_action).setChecked(true); break;
                 case AlbumSettings.SORT_BY_SIZE:  menu.findItem(R.id.size_sort_action).setChecked(true); break;
+                case AlbumSettings.SORT_BY_NUMBER:  menu.findItem(R.id.numeric_sort_action).setChecked(true); break;
                 case AlbumSettings.SORT_BY_DATE:
                 default:
                     menu.findItem(R.id.date_taken_sort_action).setChecked(true);
@@ -1304,6 +1306,17 @@ public class MainActivity extends ThemedActivity {
                     item.setChecked(true);
                 }
 
+            case R.id.numeric_sort_action:
+                if (albumsMode) {
+                    albums.setDefaultSortingMode(AlbumSettings.SORT_BY_NUMBER);
+                    albums.sortAlbums(getApplicationContext());
+                    albumsAdapter.updateDataSet(albums.dispAlbums);
+                } else {
+                    album.setDefaultSortingMode(getApplicationContext(), AlbumSettings.SORT_BY_NUMBER);
+                    album.sortPhotos();
+                    mediaAdapter.updateDataSet(album.media);
+                }
+                item.setChecked(true);
                 return true;
 
             case R.id.ascending_sort_action:

@@ -442,6 +442,9 @@ public class HandlingAlbums {
             case AlbumSettings.SORT_BY_SIZE:
                 Collections.sort(albumArrayList, albumsComparators.getSizeComparator());
                 break;
+            case AlbumSettings.SORT_BY_NUMBER:
+                Collections.sort(albumArrayList, albumsComparators.getNumericComparator());
+                break;
             case AlbumSettings.SORT_BY_DATE:
             default:
                 Collections.sort(albumArrayList, albumsComparators.getDateComparator());
@@ -459,6 +462,9 @@ public class HandlingAlbums {
                     break;
                 case AlbumSettings.SORT_BY_SIZE:
                     Collections.sort(dispAlbums, albumsComparators.getSizeComparator());
+                    break;
+                case AlbumSettings.SORT_BY_NUMBER:
+                    Collections.sort(dispAlbums, albumsComparators.getNumericComparator());
                     break;
                 case AlbumSettings.SORT_BY_DATE:
                 default:

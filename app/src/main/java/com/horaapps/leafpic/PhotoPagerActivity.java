@@ -400,6 +400,13 @@ public class PhotoPagerActivity extends ThemedActivity {
                 item.setChecked(true);
                 return true;
 
+            case R.id.numeric_sort_action:
+                album.setDefaultSortingMode(getApplicationContext(), AlbumSettings.SORT_BY_NUMBER);
+                album.sortPhotos();
+                adapter.swapDataSet(album.media);
+                item.setChecked(true);
+                return true;
+
             case R.id.ascending_sort_action:
                 album.setDefaultSortingAscending(getApplicationContext(), !item.isChecked());
                 album.sortPhotos();

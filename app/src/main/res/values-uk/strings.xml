@@ -29,6 +29,7 @@
     <string name="name">Ім\'я</string>
     <string name="date">Дата</string>
     <string name="size">Розмір</string>
+    <string name="numeric">Як число</string>
     <string name="ascending">За зростанням</string>
     <string name="select_all">Вибрати все</string>
     <string name="clear_selected">Очистити вибрані</string>
